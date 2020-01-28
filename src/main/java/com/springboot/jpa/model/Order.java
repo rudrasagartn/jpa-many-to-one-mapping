@@ -10,42 +10,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NonNull;
+
 @Entity
 @Table(name = "orders")
+@Data
 public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NonNull
 	private Integer orderId;
-	
+
+	@NonNull
 	@Column(name = "order_name")
 	private String orderName;
-	
+
 	@OneToMany(mappedBy = "order")
 	private Set<OrderLine> orderLines;
-
-	public Integer getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
-	}
-
-	public String getOrderName() {
-		return orderName;
-	}
-
-	public void setOrderName(String orderName) {
-		this.orderName = orderName;
-	}
-
-	public Set<OrderLine> getOrderLines() {
-		return orderLines;
-	}
-
-	public void setOrderLines(Set<OrderLine> orderLines) {
-		this.orderLines = orderLines;
-	}
 
 }

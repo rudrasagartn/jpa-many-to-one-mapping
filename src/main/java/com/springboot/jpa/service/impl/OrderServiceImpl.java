@@ -10,14 +10,12 @@ import com.springboot.jpa.model.Order;
 import com.springboot.jpa.service.OrderService;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	OrderDao oDao;
-	
-	
-	public List<Order> getOrders(){
-	
-		return  (List<Order>) oDao.findAll();
+
+	public List<Order> getOrders() {
+		return (List<Order>) oDao.findAll();
 	}
 }

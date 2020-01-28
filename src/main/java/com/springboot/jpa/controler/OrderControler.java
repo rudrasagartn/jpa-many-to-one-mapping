@@ -20,7 +20,7 @@ public class OrderControler {
 
 		List<Order> orders = oService.getOrders();
 		for (Order order : orders) {
-			System.out.println(order.getOrderName());
+			System.out.println(order);
 		}
 
 	}

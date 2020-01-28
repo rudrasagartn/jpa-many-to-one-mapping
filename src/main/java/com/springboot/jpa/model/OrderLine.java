@@ -9,8 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "order_line")
+@Getter @Setter
 public class OrderLine {
 
 	@Id
@@ -23,29 +27,11 @@ public class OrderLine {
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Order order;
-
-	public Integer getOrderLineId() {
-		return orderLineId;
+	
+	@Override
+	public String toString() {
+		return getOrderLineId() + " - "+getOrderLineName();
 	}
 
-	public void setOrderLineId(Integer orderLineId) {
-		this.orderLineId = orderLineId;
-	}
-
-	public String getOrderLineName() {
-		return orderLineName;
-	}
-
-	public void setOrderLineName(String orderLineName) {
-		this.orderLineName = orderLineName;
-	}
-
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
+	
 }
